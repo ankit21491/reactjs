@@ -28,10 +28,12 @@ pipeline{
                   }
                }
             }
-//         stage('Deploying into k8s'){
-//             steps{
-//                 sh 'kubectl apply -f deployment.yml'
-//             }
-//         }
+        stage('Deploying into k8s'){
+            steps{
+                bat """
+                'kubectl apply -f deployment.yml'
+                """
+            }
+        }
      }
  }
