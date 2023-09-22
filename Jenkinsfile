@@ -19,7 +19,8 @@ pipeline{
     
 	                  script{
                       bat """
-                        echo "${dockerpsd}" | docker login --username ${dockerusr} --password-stdin
+                        # echo "${dockerpsd}" | docker login --username ${dockerusr} --password-stdin
+                        docker login --username ankit21sh --password ${dockerpsd}
                         docker push ankit21sh/ankit:latest
                       """
                       
