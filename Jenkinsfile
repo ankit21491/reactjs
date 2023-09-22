@@ -15,7 +15,7 @@ pipeline{
           }
           stage('Push Image') {
               steps{
-                  withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials ', passwordVariable: 'dockerpsd', usernameVariable: 'dockerusr')]) {
+                  withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', passwordVariable: 'dockerpsd', usernameVariable: 'dockerusr')]) {
     
 	                  script{
                       bat """
