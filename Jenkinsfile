@@ -15,12 +15,16 @@ pipeline{
           }
           stage('Push Image') {
               steps{
-                  script 
-                    {
-                        docker.withRegistry( '', dockerhub-credentials ) {
-                            dockerImage.push()
-                        }
-                   } 
+                  withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials ', passwordVariable: 'dockerpsd', usernameVariable: 'dockerusr')]) {
+    
+	                  script{
+                      bat """
+                        echo "${dockerpsd}" | docker login --username ${dockerusr} --password-stdin
+                        docker push ankit21sh/ankit:latest
+                      """
+                      
+                    }
+                  }
                }
             }
 //         stage('Deploying into k8s'){
