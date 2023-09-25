@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: sunilmallela/react-app:latest
+  repository: ankit21sh/ankit:nodejs
   pullPolicy: IfNotPresent
 
 service:
